@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.ReaderMapper" >
+<select id="ReaderLogin" parameterType="String" resultType="com.entity.reader">
+    select  * from  reader where raccount=#{raccount} and  rpassword=#{rpassword}
+</select>
+
+    <insert id="AddReader" parameterType="com.entity.reader">
+        insert  into
+        reader(rname, rpassword, raccount)
+        value (#{rname},#{rpassword},#{raccount})
+    </insert>
+</mapper>

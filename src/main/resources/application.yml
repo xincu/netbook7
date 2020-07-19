@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    password: root
+    username: root
+    name: netbook
+    url: jdbc:mysql://localhost:3306/netbook?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  type-aliases-package: com.entity
+  mapper-locations: classpath:mapper/*.xml
