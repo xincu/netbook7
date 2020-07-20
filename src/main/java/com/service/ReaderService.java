@@ -14,4 +14,6 @@ public interface ReaderService {
     reader IsexitsName(String rname);
 
     List<reader> AllReader();
+
+    int DelReader(int rid);
 }

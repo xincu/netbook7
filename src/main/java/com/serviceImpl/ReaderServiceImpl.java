@@ -36,4 +36,9 @@ public class ReaderServiceImpl implements ReaderService  {
     public List<reader> AllReader() {
         return readerMapper.AllReader();
     }
+
+    @Override
+    public int DelReader(int rid) {
+        return readerMapper.DelReader(rid);
+    }
 }

@@ -19,4 +19,8 @@
     <select id="AllReader" resultType="com.entity.reader">
         select  * from reader
     </select>
+    <delete id="DelReader" parameterType="Integer">
+        DELETE  * FROM  read
+        where rid =#{rid}
+    </delete>
 </mapper>

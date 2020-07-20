@@ -16,4 +16,6 @@ public interface ReaderMapper {
     reader IsexitsName(String rname);
 
     List<reader> AllReader();
+
+    int DelReader(int rid);
 }

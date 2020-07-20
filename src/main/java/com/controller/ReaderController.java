@@ -18,4 +18,10 @@ public class ReaderController {
         List<reader> reader=readerService.AllReader();
         return reader;
     }
+    @RequestMapping("DelReader")
+    public  Object DelReader(int rid){
+        int  num= readerService.DelReader(rid);
+        if (num>0){return "删除成功";}
+        else{  return "删除失败";}
+    }
 }
