@@ -5,4 +5,7 @@
         insert  into
         book (book_name, book_kind, book_described, book_author_wid) VALUE (#{bookName},#{bookKind},#{bookDescribed},#{#bookAuthorWid})
     </insert>
+    <select id="IsexitsBookName" parameterType="String" resultType="com.entity.book">
+        select  * from  book where book_name=#{bookName}
+    </select>
 </mapper>

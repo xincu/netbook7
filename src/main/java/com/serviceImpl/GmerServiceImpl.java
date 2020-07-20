@@ -21,4 +21,16 @@ public class GmerServiceImpl  implements GmerService {
 
 
     }
+
+    @Override
+    public gmer IsexistAccount(String gaccount) {
+        return gmerMapper.IsexistAccount(gaccount);
+    }
+
+    @Override
+    public gmer IsexistName(String gname) {
+        return gmerMapper.IsexistName(gname);
+    }
+
+
 }

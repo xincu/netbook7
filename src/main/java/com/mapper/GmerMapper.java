@@ -9,4 +9,8 @@ public interface GmerMapper {
     gmer GmerLogin(String gaccount, String gpassword);
 
     int AddGmer(gmer gmer);
+
+    gmer IsexistAccount(String gaccount);
+
+    gmer IsexistName(String gname);
 }

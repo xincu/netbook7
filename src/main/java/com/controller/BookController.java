@@ -13,12 +13,18 @@ public class BookController {
     BookService bookService;
     @RequestMapping("/AddBook")
     public String AddBook(book Book ){
+        book book=bookService.IsexitsBookName(Book.getBookName());
+       if (book==null){
         int num=  bookService.AddBook(Book);
         if (num>0){
             return "ok";
         }else{
             return "no";
         }
+    }else{
+           return "该书名已存在";
+       }
     }
+
 
 }

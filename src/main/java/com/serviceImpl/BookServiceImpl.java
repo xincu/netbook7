@@ -16,4 +16,9 @@ public class BookServiceImpl implements BookService {
 
         return bookMapper.AddBook(book) ;
     }
+
+    @Override
+    public book IsexitsBookName(String bookName) {
+        return bookMapper.IsexitsBookName(bookName);
+    }
 }

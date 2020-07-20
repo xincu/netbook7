@@ -6,6 +6,8 @@ import com.service.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class WorkerServiceImpl implements WorkerService {
   @Autowired
@@ -19,5 +21,20 @@ public class WorkerServiceImpl implements WorkerService {
   @Override
   public int AddWorker(worker worker) {
     return workerMapper.AddWorker(worker);
+  }
+
+  @Override
+  public worker IsexistAccount(String waccount) {
+    return workerMapper.IsexistAccount(waccount);
+  }
+
+  @Override
+  public worker IsexistName(String wname) {
+    return workerMapper.IsexistName(wname);
+  }
+
+  @Override
+  public List<worker> AllWorker() {
+    return workerMapper.AllWorker();
   }
 }

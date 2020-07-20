@@ -20,7 +20,8 @@ public class RegisterController {
     GmerService gmerService;
     @RequestMapping("/AddReader")
     public  String AddReader(reader reader){
-
+      reader reader1=readerService.IsexitsAccount(reader.getRaccount());
+      reader reader2= readerService.IsexitsName(reader.getRname());
         int  num= readerService.AddReader(reader);
         if (num>0){
             return "新增读者成功";
@@ -31,25 +32,46 @@ public class RegisterController {
     }
     @RequestMapping("/AddWorker")
     public  String AddWorker(worker worker){
+     worker worker1=workerService.IsexistAccount(worker.getWaccount());
+     worker worker2=workerService.IsexistName(worker.getWname());
+        if (worker1==null){
+            if (worker2==null) {
+                int num = workerService.AddWorker(worker);
+                if (num > 0) {
+                    return "新增作者成功";
+                } else {
+                    return "新增作者失败";
+                }
+            }else{
+                    return "用户名已存在";
+                }
 
-        int  num= workerService.AddWorker(worker);
-        if (num>0){
-            return "新增作者成功";
-        }else {
-            return "新增作者失败";
-        }
 
+            }else{
+                return  "该账号已存在";
+            }
     }
     @RequestMapping("/AddGmer")
     public  String AddGmer(gmer gmer){
+      gmer gmer1=gmerService.IsexistAccount(gmer.getGaccount());
+      gmer gmer2=gmerService.IsexistName(gmer.getGname());
+      if (gmer1==null){
+          if (gmer2==null){
+              int  num= gmerService.AddGmer(gmer);
+              if (num>0){
+                  return "新增管理者成功";
+              }else {
+                  return "新增管理者失败";
+              }
 
-        int  num= gmerService.AddGmer(gmer);
-        if (num>0){
-            return "新增管理者成功";
-        }else {
-            return "新增管理者失败";
-        }
+          }else{
+              return "用户名已存在";
+          }
 
+
+    }else{
+          return  "该账号已存在";
+      }
     }
 
 

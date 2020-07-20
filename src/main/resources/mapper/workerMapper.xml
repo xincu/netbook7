@@ -5,9 +5,20 @@
     select  * from worker
     where waccount=#{waccount} and  wpassword=#{wpassword}
 </select>
+    <select id="IsexistAccount" parameterType="String" resultType="com.entity.worker" >
+        select  * from  worker
+        where waccount=#{waccount}
+    </select>
+    <select id="IsexistName"  resultType="com.entity.worker" parameterType="String">
+        select * from worker
+        where wname=#{wname};
+    </select>
     <insert id="AddWorker" parameterType="com.entity.worker" >
         insert  into
         worker(wname, wpassword, waccount)
         value (#{wname}, #{wpassword}, #{waccount})
     </insert>
+  <select id="AllWorker" resultType="com.entity.worker">
+     select  * from  worker
+ </select>
 </mapper>

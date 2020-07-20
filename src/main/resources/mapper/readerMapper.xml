@@ -10,4 +10,13 @@
         reader(rname, rpassword, raccount)
         value (#{rname},#{rpassword},#{raccount})
     </insert>
+    <select id="IsexitsAccount" parameterType="String" resultType="com.entity.reader">
+     select  * from  reader where  raccount=#{raccount}
+ </select>
+    <select id="IsexitsName" resultType="com.entity.reader" parameterType="String">
+        select  * from  reader where rname=#{rname}
+    </select>
+    <select id="AllReader" resultType="com.entity.reader">
+        select  * from reader
+    </select>
 </mapper>

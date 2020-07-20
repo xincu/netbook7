@@ -5,7 +5,15 @@
        select * from  gmer
        where gaccount=#{gaccount} and  gpassword =#{gpassword}
    </select>
+    <!--用于验证账户是否已存在-->
+   <select id="IsexistAccount" parameterType="String" resultType="com.entity.gmer">
+     select  *  from  gmer  where gaccount = #{gaccount}
+   </select>
+    <select id="IsexistName" parameterType="String" resultType="com.entity.gmer">
+     select  *  from  gmer  where gname = #{gname}
+   </select>
     <insert id="AddGmer" parameterType="com.entity.gmer">
         insert into gmer (gname, gpassword, gaccount) values (#{gname},#{gpassword},#{gaccount} );
     </insert>
+
 </mapper>
