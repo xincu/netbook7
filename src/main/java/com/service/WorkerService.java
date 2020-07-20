@@ -16,4 +16,6 @@ public interface WorkerService {
     List<worker> AllWorker();
 
     int DelWorker(int wid);
+
+    List<worker> AnyWorker(int pageNum);
 }

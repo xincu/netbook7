@@ -41,4 +41,27 @@ public class ReaderServiceImpl implements ReaderService  {
     public int DelReader(int rid) {
         return readerMapper.DelReader(rid);
     }
+
+    @Override
+    public List<reader> AnyReader(int pageNum) {
+        int pagesize= 3;
+        System.out.println("1");
+        int count= readerMapper.Count();
+        System.out.println(count);
+        System.out.println("2");
+        int PageMax=count/pagesize;
+        if (count%pagesize>0){
+            PageMax++;
+        }
+        if(pageNum>PageMax){
+            pageNum=PageMax;
+        }
+        if(pageNum<1){
+            pageNum=1;
+        }
+        int start=(pageNum-1)*pagesize;
+        return readerMapper.AnyReader(start,pagesize);
+
+
+    }
 }

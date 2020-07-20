@@ -20,4 +20,8 @@ public interface WorkerMapper {
     int DelWorker(String wid);
 
     int DelWorker(int wid);
+
+    int Count();
+
+    List<worker> AnyWorker(int start, int pageSize);
 }

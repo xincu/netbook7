@@ -42,4 +42,23 @@ public class WorkerServiceImpl implements WorkerService {
   public int DelWorker(int wid) {
     return workerMapper.DelWorker(wid);
   }
+
+  @Override
+  public List<worker> AnyWorker(int pageNum) {
+    int  pageSize= 2;
+    int count=workerMapper.Count();
+    int pageMax=count/pageSize;
+    if (count%pageSize>0){
+      pageMax++;
+    }
+    if (pageNum>pageMax){
+      pageNum=pageMax;
+    }
+    if(pageNum<1){
+      pageNum=1;
+    }
+    int start=pageNum*pageSize-pageSize;
+
+      return workerMapper.AnyWorker(start,pageSize);
+  }
 }

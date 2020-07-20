@@ -9,4 +9,11 @@
     <select id="IsexitsBookName" parameterType="String" resultType="com.entity.book">
         select  * from  book where book_name=#{bookName}
     </select>
+    <select id="Count" resultType="Integer">
+        select  count(book_id) from  book
+    </select>
+    <select id="AnyBook" parameterType="Integer" resultType="com.entity.book">
+        select  * from  book
+        limit #{start},#{pagesize}
+    </select>
 </mapper>

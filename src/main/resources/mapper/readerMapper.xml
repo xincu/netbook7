@@ -23,4 +23,11 @@
         DELETE   FROM  reader
         where rid =#{rid}
     </delete>
+    <select id="AnyReader" resultType="com.entity.reader" parameterType="Integer">
+        select  *  from  reader
+        limit #{start},#{pagesize}
+     </select>
+    <select id="Count" resultType="Integer">
+        select  count(rid)  from  reader
+    </select>
 </mapper>

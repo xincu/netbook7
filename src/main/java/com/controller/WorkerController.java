@@ -17,6 +17,7 @@ public class WorkerController {
         List<worker> worker=workerService.AllWorker();
         return  worker;
     }
+
     @RequestMapping("DelWorker")
     public  Object DelWorker(int wid){
         int num =workerService.DelWorker(wid);
@@ -26,6 +27,11 @@ public class WorkerController {
             return "删除失败";
         }
     }
+  @RequestMapping("AnyWorker")
+    public  List<worker> AnyWorker(int PageNum){
+      List<worker> workers=workerService.AnyWorker(PageNum);
+      return workers;
+  }
 
 }
 

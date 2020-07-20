@@ -18,4 +18,8 @@ public interface ReaderMapper {
     List<reader> AllReader();
 
     int DelReader(int rid);
+
+    List<reader> AnyReader(int start, int pagesize);
+
+    int Count();
 }

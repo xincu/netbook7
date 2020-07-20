@@ -16,4 +16,6 @@ public interface ReaderService {
     List<reader> AllReader();
 
     int DelReader(int rid);
+
+    List<reader> AnyReader(int pageNum);
 }

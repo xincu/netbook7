@@ -24,4 +24,11 @@
     <delete id="DelWorker" parameterType="Integer">
     delete  from  worker where wid=#{wid}
  </delete>
+    <select id="Count" resultType="Integer">
+        select  count(wid) from  worker
+    </select>
+    <select id="AnyWorker" resultType="com.entity.worker" parameterType="Integer">
+           select  * from  worker
+           limit #{start},#{pageSize}
+    </select>
 </mapper>
