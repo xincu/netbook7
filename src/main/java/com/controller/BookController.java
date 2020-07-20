@@ -35,6 +35,7 @@ public class BookController {
     @RequestMapping("/AnyBook")
     public List<book> AnyBook(int PageNum){
         List<book> books=bookService.AnyBook(PageNum);
+        System.out.println(books);
         return  books;
     }
 

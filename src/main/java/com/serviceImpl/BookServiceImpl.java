@@ -18,6 +18,7 @@ public class BookServiceImpl implements BookService {
     public List<book> AnyBook(int pageNum) {
         int pagesize=2;
         int count=bookMapper.Count();
+        System.out.println(count);
          int PageMax=count/pagesize;
          if (count%pagesize>0){
              PageMax++;
@@ -30,8 +31,11 @@ public class BookServiceImpl implements BookService {
              pageNum=1;
          }
          int start=(pageNum-1)*pagesize;
-
-        return bookMapper.AnyBook(start,pagesize) ;
+        System.out.println(start);
+        System.out.println(pagesize);
+        List<book> books = bookMapper.AnyBook(start,pagesize) ;
+        System.out.println(books);
+        return books ;
     }
 
     @Override
