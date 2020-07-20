@@ -20,7 +20,7 @@
         select  * from reader
     </select>
     <delete id="DelReader" parameterType="Integer">
-        DELETE  * FROM  read
+        DELETE   FROM  reader
         where rid =#{rid}
     </delete>
 </mapper>

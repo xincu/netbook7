@@ -17,6 +17,15 @@ public class WorkerController {
         List<worker> worker=workerService.AllWorker();
         return  worker;
     }
+    @RequestMapping("DelWorker")
+    public  Object DelWorker(int wid){
+        int num =workerService.DelWorker(wid);
+        if (num>0){
+            return "删除成功";
+        }else{
+            return "删除失败";
+        }
+    }
 
 }
 

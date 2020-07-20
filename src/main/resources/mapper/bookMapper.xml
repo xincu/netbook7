@@ -2,8 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mapper.BookMapper">
     <insert id="AddBook" parameterType="com.entity.book">
-        insert  into
-        book (book_name, book_kind, book_described, book_author_wid) VALUE (#{bookName},#{bookKind},#{bookDescribed},#{#bookAuthorWid})
+         insert  into
+         book (book_name, book_kind, book_described, book_author_wid)
+         VALUE (#{bookName},#{bookKind},#{bookDescribed},#{bookAuthorWid})
     </insert>
     <select id="IsexitsBookName" parameterType="String" resultType="com.entity.book">
         select  * from  book where book_name=#{bookName}

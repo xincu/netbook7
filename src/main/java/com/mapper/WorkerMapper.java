@@ -16,4 +16,8 @@ public interface WorkerMapper {
     worker IsexistAccount(String waccount);
 
     List<worker>  AllWorker();
+
+    int DelWorker(String wid);
+
+    int DelWorker(int wid);
 }

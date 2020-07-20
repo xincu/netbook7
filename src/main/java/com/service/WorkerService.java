@@ -14,4 +14,6 @@ public interface WorkerService {
     worker IsexistName(String wname);
 
     List<worker> AllWorker();
+
+    int DelWorker(int wid);
 }

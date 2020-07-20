@@ -21,4 +21,7 @@
   <select id="AllWorker" resultType="com.entity.worker">
      select  * from  worker
  </select>
+    <delete id="DelWorker" parameterType="Integer">
+    delete  from  worker where wid=#{wid}
+ </delete>
 </mapper>

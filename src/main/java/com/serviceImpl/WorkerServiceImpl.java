@@ -37,4 +37,9 @@ public class WorkerServiceImpl implements WorkerService {
   public List<worker> AllWorker() {
     return workerMapper.AllWorker();
   }
+
+  @Override
+  public int DelWorker(int wid) {
+    return workerMapper.DelWorker(wid);
+  }
 }

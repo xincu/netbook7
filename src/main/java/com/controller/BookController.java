@@ -13,6 +13,7 @@ public class BookController {
     BookService bookService;
     @RequestMapping("/AddBook")
     public String AddBook(book Book ){
+        System.out.println(Book);
         book book=bookService.IsexitsBookName(Book.getBookName());
        if (book==null){
         int num=  bookService.AddBook(Book);
