@@ -1,7 +1,9 @@
 package com.serviceImpl;
 
 import com.entity.book;
+import com.entity.bookChapters;
 import com.mapper.BookMapper;
+import com.mapper.bookChaptersMapper;
 import com.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +15,8 @@ public class BookServiceImpl implements BookService {
 
     @Autowired
     private BookMapper bookMapper;
-
+   @Autowired
+   private bookChaptersMapper bookChaptersMapper;
     @Override
     public List<book> AnyBook(int pageNum) {
         int pagesize=2;
@@ -47,5 +50,26 @@ public class BookServiceImpl implements BookService {
     @Override
     public book IsexitsBookName(String bookName) {
         return bookMapper.IsexitsBookName(bookName);
+    }
+
+    @Override
+    public int AddChaptersByWorker(bookChapters bookChapters) {
+
+        return bookChaptersMapper.AddChaptersByWorker(bookChapters) ;
+    }
+
+    @Override
+    public List<bookChapters> showVia() {
+        return bookChaptersMapper.showVia();
+    }
+
+    @Override
+    public List<bookChapters> showSubmit() {
+        return bookChaptersMapper.showSubmit();
+    }
+
+    @Override
+    public List<bookChapters> showWorker(int bWid) {
+        return bookChaptersMapper.showWorker(bWid);
     }
 }

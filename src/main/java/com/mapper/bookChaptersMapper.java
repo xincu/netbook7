@@ -1,17 +1,12 @@
-package com.service;
+package com.mapper;
 
-import com.entity.book;
 import com.entity.bookChapters;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface BookService {
-    List<book> AnyBook(int pageNum);
-
-    int AddBook(book book);
-
-    book IsexitsBookName(String bookName);
-
+@Repository
+public interface bookChaptersMapper {
     int AddChaptersByWorker(bookChapters bookChapters);
 
     List<bookChapters> showVia();
