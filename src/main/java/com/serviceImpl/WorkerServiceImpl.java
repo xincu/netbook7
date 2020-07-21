@@ -12,37 +12,37 @@ import java.util.List;
 public class WorkerServiceImpl implements WorkerService {
   @Autowired
   private WorkerMapper workerMapper;
-
+/*作者登录*/
     @Override
     public worker WorkerLogin(String waccount, String wpassword) {
         return workerMapper.WorkerLogin(waccount,wpassword);
     }
-
+/*作者注册*/
   @Override
   public int AddWorker(worker worker) {
     return workerMapper.AddWorker(worker);
   }
-
+/*账号重复判断*/
   @Override
   public worker IsexistAccount(String waccount) {
     return workerMapper.IsexistAccount(waccount);
   }
-
+/*称呼重复判断*/
   @Override
   public worker IsexistName(String wname) {
     return workerMapper.IsexistName(wname);
   }
-
+/*查看所有作者*/
   @Override
   public List<worker> AllWorker() {
     return workerMapper.AllWorker();
   }
-
+/*删除作者*/
   @Override
   public int DelWorker(int wid) {
     return workerMapper.DelWorker(wid);
   }
-
+/*作者分页*/
   @Override
   public List<worker> AnyWorker(int pageNum) {
     int  pageSize= 2;

@@ -18,6 +18,7 @@ public class RegisterController {
     WorkerService workerService;
     @Autowired
     GmerService gmerService;
+    /*注册3个*/
     @RequestMapping("/AddReader")
     public  String AddReader(reader reader){
       reader reader1=readerService.IsexitsAccount(reader.getRaccount());

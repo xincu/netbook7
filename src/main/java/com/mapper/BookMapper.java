@@ -16,5 +16,7 @@ public interface BookMapper {
 
     List<book> AnyBook(int start, int pagesize);
 
-   ;
+    List<book> getBookByworker(int wid);
+
+    ;
 }

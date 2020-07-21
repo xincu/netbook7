@@ -23,4 +23,8 @@
         select *  from  book
         limit #{start},#{pagesize}
     </select>
+    <select id="getBookByworker" parameterType="integer" resultMap="baseResultMap">
+        select  * from  book
+        where  book_author_wid=#{wid}
+    </select>
 </mapper>

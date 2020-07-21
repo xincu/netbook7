@@ -18,6 +18,7 @@ public class LoginController {
     WorkerService workerService;
     @Autowired
     GmerService gmerService;
+    /*登录3个*/
     @RequestMapping("/ReaderLogin")
     public  String ReaderLogin(String raccount,String rpassword){
         System.out.println("读者 "+raccount+",密码"+rpassword);

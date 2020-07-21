@@ -12,12 +12,13 @@ import java.util.List;
 public class WorkerController {
     @Autowired
     WorkerService workerService;
+    /*查看所有作者*/
     @RequestMapping("AllWorker")
     public List<worker> AllWorker(){
         List<worker> worker=workerService.AllWorker();
         return  worker;
     }
-
+   /*删除作者*/
     @RequestMapping("DelWorker")
     public  Object DelWorker(int wid){
         int num =workerService.DelWorker(wid);
@@ -27,6 +28,7 @@ public class WorkerController {
             return "删除失败";
         }
     }
+    /*查看作者的分页*/
   @RequestMapping("AnyWorker")
     public  List<worker> AnyWorker(int PageNum){
       List<worker> workers=workerService.AnyWorker(PageNum);

@@ -13,18 +13,20 @@ public class ReaderController {
 
     @Autowired
     ReaderService readerService;
+    /*查看所有读者 （仅管理员可用）*/
     @RequestMapping("/AllReader")
     public List<reader> AllReader(){
         List<reader> reader=readerService.AllReader();
         return reader;
     }
+    /*按指定id删除读者（仅管理员看读者可用）*/
     @RequestMapping("DelReader")
     public  Object DelReader(int rid){
         int  num= readerService.DelReader(rid);
         if (num>0){return "删除成功";}
         else{  return "删除失败";}
     }
-
+    /*读者的分页（供管理查看读者时使用）*/
     @RequestMapping("AnyReader")
       public  List<reader> AnyReader(int PageNum){
         List<reader> readers=readerService.AnyReader(PageNum);

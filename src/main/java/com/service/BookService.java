@@ -14,9 +14,15 @@ public interface BookService {
 
     int AddChaptersByWorker(bookChapters bookChapters);
 
-    List<bookChapters> showVia();
+    List<bookChapters> showVia(int bId);
 
     List<bookChapters> showSubmit();
 
     List<bookChapters> showWorker(int bWid);
+
+    List<bookChapters> Anychapters(int bId, int pageNum);
+
+    List<book> getBookByworker(int wid);
+
+    int AuditChapters(int bcId, int bcStateId);
 }
