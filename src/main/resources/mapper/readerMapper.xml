@@ -30,4 +30,11 @@
     <select id="Count" resultType="Integer">
         select  count(rid)  from  reader
     </select>
+    <update id="updateReader" parameterType="com.entity.reader">
+        update  reader set
+        rpassword=#{rpassword},
+         rname=#{rname}
+         where rid= #{rid}
+
+    </update>
 </mapper>

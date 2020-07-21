@@ -34,6 +34,20 @@ public class WorkerController {
       List<worker> workers=workerService.AnyWorker(PageNum);
       return workers;
   }
-
+/*作者基本信息的修改*/
+    @RequestMapping("/updateWorker")
+    public  Object updateWorker(worker worker){
+        worker worker1  = workerService.IsexistName(worker.getWname());
+        if (worker1==null){
+        int num=workerService.updateWorker(worker);
+        if (num>0){
+            return "修改成功";
+        }else{
+            return "修改失败";
+        }
+    }else {
+            return"该称呼已存在";
+        }
+    }
 }
 

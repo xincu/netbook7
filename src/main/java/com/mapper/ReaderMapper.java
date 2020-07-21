@@ -22,4 +22,6 @@ public interface ReaderMapper {
     List<reader> AnyReader(int start, int pagesize);
 
     int Count();
+
+    int updateReader(reader reader);
 }

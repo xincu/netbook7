@@ -25,4 +25,6 @@ public interface BookService {
     List<book> getBookByworker(int wid);
 
     int AuditChapters(int bcId, int bcStateId);
+
+    int updateChapters(bookChapters bookChapters);
 }

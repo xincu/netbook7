@@ -24,4 +24,6 @@ public interface WorkerMapper {
     int Count();
 
     List<worker> AnyWorker(int start, int pageSize);
+
+    int updateWorker(worker worker);
 }

@@ -20,4 +20,6 @@ public interface bookChaptersMapper {
     List<bookChapters> Anychapters(int start, int pageSize, int bId);
 
     int AuditChapters(int bcId, int bcStateId);
+
+    int updateChapters(bookChapters bookChapters);
 }

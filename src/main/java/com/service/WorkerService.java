@@ -18,4 +18,6 @@ public interface WorkerService {
     int DelWorker(int wid);
 
     List<worker> AnyWorker(int pageNum);
+
+    int updateWorker(worker worker);
 }

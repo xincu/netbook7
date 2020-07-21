@@ -65,4 +65,9 @@ public class ReaderServiceImpl implements ReaderService  {
 
 
     }
+
+    @Override
+    public int updateReader(reader reader) {
+        return readerMapper.updateReader(reader);
+    }
 }

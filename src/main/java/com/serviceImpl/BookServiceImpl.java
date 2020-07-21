@@ -55,7 +55,6 @@ public class BookServiceImpl implements BookService {
    /*新增小说章节*/
     @Override
     public int AddChaptersByWorker(bookChapters bookChapters) {
-
         return bookChaptersMapper.AddChaptersByWorker(bookChapters) ;
     }
     /*指定书id 章节的向读者展示*/
@@ -102,5 +101,10 @@ public class BookServiceImpl implements BookService {
     @Override
     public int AuditChapters(int bcId, int bcStateId) {
         return bookChaptersMapper.AuditChapters(bcId,bcStateId);
+    }
+
+    @Override
+    public int updateChapters(bookChapters bookChapters) {
+        return bookChaptersMapper.updateChapters(bookChapters);
     }
 }

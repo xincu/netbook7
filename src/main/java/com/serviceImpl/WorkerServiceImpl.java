@@ -61,4 +61,10 @@ public class WorkerServiceImpl implements WorkerService {
 
       return workerMapper.AnyWorker(start,pageSize);
   }
+
+  @Override
+  public int updateWorker(worker worker) {
+
+    return workerMapper.updateWorker(worker);
+  }
 }

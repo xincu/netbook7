@@ -4,11 +4,17 @@ import com.entity.book;
 import com.entity.bookChapters;
 import com.service.BookService;
 
+import com.sun.xml.internal.ws.encoding.MimeMultipartParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 public class BookController {
@@ -42,22 +48,37 @@ public class BookController {
     }
     /* 增加章节*/
     @RequestMapping("/AddChaptersByWorker")
-    public  String AddChapters(bookChapters bookChapters){
-       int  num=bookService.AddChaptersByWorker(bookChapters);
-      if (num>0){
+    public  String AddChaptersByWorker(@RequestParam("chapter")MultipartFile file,bookChapters bookChapters){
+        //获取文件的名字
+        String filename=file.getOriginalFilename();
+        //获取文件的后缀名
+        String suffix=filename.substring(filename.lastIndexOf("."));
+        //上传的文件放在盘符下的upload文件夹中
+        String path="e:\\upload\\";
+        //防止重复名，随机文件名
+        filename= path+ UUID.randomUUID()+suffix;
+        File f=new File(filename);
+        if(!f.getParentFile().exists()){
+            f.getParentFile().mkdirs();
+        }
+        try{
 
-          if(bookChapters.getBcStateId()==4){
-              return "已保存";
-          }else{
-              return "已提交";
-          }
-
-      }else{
-          return "提交失败";
-      }
-
-
-
+            file.transferTo(f);
+            bookChapters.setcContent(filename);
+            int  num=bookService.AddChaptersByWorker(bookChapters);
+            if (num>0){
+                if(bookChapters.getBcStateId()==4){
+                    return "已保存";
+                }else{
+                    return "已提交";
+                }
+            }else{
+                return "提交失败";
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "失败";
+        }
     }
    /*小说章节分页*/
     @RequestMapping("/Anychapters")
@@ -104,4 +125,42 @@ public class BookController {
         }
 
     }
+    /*作者对已更新的小说章节的更新*/
+    @RequestMapping("/updateChapters")
+    public  Object  updateChapters(bookChapters bookChapters){
+     int num =bookService.updateChapters(bookChapters);
+        if (num>0){
+            return "ok";
+        }else{
+            return "no";
+        }
+    }
+/*关于上传文件*/
+@RequestMapping("/updateFile")
+    public String updateFile(@RequestParam("myfile")MultipartFile file){
+    //获取文件的名字
+    String filename=file.getOriginalFilename();
+    //获取文件的后缀名
+    String suffix=filename.substring(filename.lastIndexOf("."));
+     //上传的文件放在盘符下的upload文件夹中
+    String path="e:\\upload\\";
+    //防止重复名，随机文件名
+    filename= path+ UUID.randomUUID()+suffix;
+    File f=new File(filename);
+    if(!f.getParentFile().exists()){
+        f.getParentFile().mkdirs();
+    }
+    try{
+
+            file.transferTo(f);
+            return "成功";
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "失败";
+        }
+
+
+
+}
+
 }

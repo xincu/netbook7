@@ -31,4 +31,10 @@
            select  * from  worker
            limit #{start},#{pageSize}
     </select>
+    <update id="updateWorker" parameterType="com.entity.worker">
+        update  work set
+         wname=#{wname},
+         wpassword = #{wpassword}
+         where wid= #{wid}
+    </update>
 </mapper>

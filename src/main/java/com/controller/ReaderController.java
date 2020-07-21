@@ -33,5 +33,19 @@ public class ReaderController {
 
         return readers;
     }
+    @RequestMapping("/updateReader")
+    public  Object updateWorker(reader reader){
+        reader reader1  =readerService.IsexitsName(reader.getRname());
+        if (reader1==null){
+            int num=readerService.updateReader(reader);
+            if (num>0){
+                return "修改成功";
+            }else{
+                return "修改失败";
+            }
+        }else {
+            return"该称呼已存在";
+        }
+    }
 
 }
