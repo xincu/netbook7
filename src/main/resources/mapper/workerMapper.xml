@@ -37,4 +37,9 @@
          wpassword = #{wpassword}
          where wid= #{wid}
     </update>
+    <select id="likeWorker" parameterType="string" resultType="com.entity.worker">
+   select  * from  worker
+   where  wname like '%' #{wname} '%'
+
+ </select>
 </mapper>

@@ -20,4 +20,6 @@ public interface WorkerService {
     List<worker> AnyWorker(int pageNum);
 
     int updateWorker(worker worker);
+
+    List<worker> likeWorker(String wname);
 }

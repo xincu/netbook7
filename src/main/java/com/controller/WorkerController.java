@@ -29,12 +29,12 @@ public class WorkerController {
         }
     }
     /*查看作者的分页*/
-  @RequestMapping("AnyWorker")
+    @RequestMapping("AnyWorker")
     public  List<worker> AnyWorker(int PageNum){
       List<worker> workers=workerService.AnyWorker(PageNum);
       return workers;
   }
-/*作者基本信息的修改*/
+    /*作者基本信息的修改*/
     @RequestMapping("/updateWorker")
     public  Object updateWorker(worker worker){
         worker worker1  = workerService.IsexistName(worker.getWname());
@@ -48,6 +48,13 @@ public class WorkerController {
     }else {
             return"该称呼已存在";
         }
+    }
+/*根据作者名字来进行模糊查询*/
+    @RequestMapping("/likeWorker")
+    public  List<worker> likeWorker(String wname){
+
+        List<worker> workerlist=workerService.likeWorker(wname);
+        return workerlist;
     }
 }
 

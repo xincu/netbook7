@@ -126,6 +126,17 @@ public class BookServiceImpl implements BookService {
         System.out.println("删除成功");
         return 0;
     }
+
+    @Override
+    public int updateBook(book book) {
+        return bookMapper.updateBook(book);
+    }
+
+    @Override
+    public List<book> likeBook(String bookName) {
+        return bookMapper.likeBook(bookName);
+    }
+
     /*先删章节*/
     @Transactional
     public  void delBookINBookChapters(int bId){

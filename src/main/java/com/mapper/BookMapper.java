@@ -20,4 +20,8 @@ public interface BookMapper {
 
 
     int delBookInBook(int bId);
+
+    int updateBook(book book);
+
+    List<book> likeBook(String bookName);
 }

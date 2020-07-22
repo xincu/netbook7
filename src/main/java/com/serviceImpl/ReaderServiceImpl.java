@@ -70,4 +70,9 @@ public class ReaderServiceImpl implements ReaderService  {
     public int updateReader(reader reader) {
         return readerMapper.updateReader(reader);
     }
+
+    @Override
+    public List<reader> likeReader(String rname) {
+        return readerMapper.likeReader(rname);
+    }
 }

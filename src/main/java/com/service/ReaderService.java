@@ -20,4 +20,6 @@ public interface ReaderService {
     List<reader> AnyReader(int pageNum);
 
     int updateReader(reader reader);
+
+    List<reader> likeReader(String rname);
 }

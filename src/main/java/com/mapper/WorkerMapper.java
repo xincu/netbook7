@@ -26,4 +26,6 @@ public interface WorkerMapper {
     List<worker> AnyWorker(int start, int pageSize);
 
     int updateWorker(worker worker);
+
+    List<worker> likeWorker(String wname);
 }

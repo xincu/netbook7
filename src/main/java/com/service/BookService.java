@@ -31,4 +31,8 @@ public interface BookService {
     String showChapter(int bcId);
 
     int delBook(int bId);
+
+    int updateBook(book book);
+
+    List<book> likeBook(String bookName);
 }

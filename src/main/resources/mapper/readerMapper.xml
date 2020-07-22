@@ -37,4 +37,8 @@
          where rid= #{rid}
 
     </update>
+    <select id="likeReader" parameterType="String" resultType="com.entity.reader">
+        select  *  from  reader
+        where  rname like '%' #{rname} '%'
+    </select>
 </mapper>

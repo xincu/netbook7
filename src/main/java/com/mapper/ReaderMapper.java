@@ -24,4 +24,6 @@ public interface ReaderMapper {
     int Count();
 
     int updateReader(reader reader);
+
+    List<reader> likeReader(String rname);
 }

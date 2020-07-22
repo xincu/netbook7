@@ -159,9 +159,23 @@ public class BookController {
     int num =bookService.delBook(bId);
     return num;
 
-
-
    }
+/*修改小说介绍*/
+    @RequestMapping("/updateBook")
+    public String updateBook(book book){
+   int num=bookService.updateBook(book);
+        if (num>0){
+            return "ok";
+        }else{
+            return "no";
+        }
+    }
+    /*小说名字的模糊查询*/
+    @RequestMapping("/likeBook")
+    public  List<book> likeBook(String bookName){
+        List<book> booklist=bookService.likeBook(bookName);
+        return  booklist;
+    }
 
     /*关于上传文件*/
 @RequestMapping("/updateFile")

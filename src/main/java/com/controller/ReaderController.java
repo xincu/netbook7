@@ -33,6 +33,7 @@ public class ReaderController {
 
         return readers;
     }
+   /*修改读者信息*/
     @RequestMapping("/updateReader")
     public  Object updateWorker(reader reader){
         reader reader1  =readerService.IsexitsName(reader.getRname());
@@ -47,5 +48,13 @@ public class ReaderController {
             return"该称呼已存在";
         }
     }
+/*读者的模糊查询*/
+    @RequestMapping("likeReader")
+    public  List<reader> likeReader(String rname){
+        List<reader> readerList=readerService.likeReader(rname);
+        return readerList;
+
+    }
+
 
 }

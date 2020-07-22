@@ -67,4 +67,9 @@ public class WorkerServiceImpl implements WorkerService {
 
     return workerMapper.updateWorker(worker);
   }
+
+  @Override
+  public List<worker> likeWorker(String wname) {
+    return workerMapper.likeWorker(wname);
+  }
 }
