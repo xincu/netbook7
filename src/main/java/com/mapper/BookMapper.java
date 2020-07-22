@@ -18,5 +18,6 @@ public interface BookMapper {
 
     List<book> getBookByworker(int wid);
 
-    ;
+
+    int delBookInBook(int bId);
 }

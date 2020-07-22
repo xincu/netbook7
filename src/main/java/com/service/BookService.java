@@ -29,4 +29,6 @@ public interface BookService {
     int updateChapters(bookChapters bookChapters);
 
     String showChapter(int bcId);
+
+    int delBook(int bId);
 }

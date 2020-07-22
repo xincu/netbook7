@@ -7,6 +7,7 @@ import com.mapper.bookChaptersMapper;
 import com.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -112,5 +113,29 @@ public class BookServiceImpl implements BookService {
     public String showChapter(int bcId) {
         return bookChaptersMapper.showChapter(bcId);
     }
+    /*事务，关于删除指定id的书同时删除所有该书的章节*/
+    @Override
+    @Transactional
+    public int delBook(int bId) {
+        System.out.println("删除开始");
+        System.out.println("删除bc表中的小说章节");
+         this.delBookINBookChapters(bId);
+        System.out.println("删除成功");
+        System.out.println("删除b表的指定小说");
+         this.delBookInBook(bId);
+        System.out.println("删除成功");
+        return 0;
+    }
+    /*先删章节*/
+    @Transactional
+    public  void delBookINBookChapters(int bId){
+        int num1=bookChaptersMapper.delBookINBookChapters(bId);
 
+    }
+    /*再删书名*/
+    @Transactional
+    public void delBookInBook(int bId){
+        int num2=bookMapper.delBookInBook(bId);
+
+    }
 }

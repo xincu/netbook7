@@ -24,4 +24,6 @@ public interface bookChaptersMapper {
     int updateChapters(bookChapters bookChapters);
 
     String showChapter(int bcId);
+
+    int delBookINBookChapters(int bId);
 }

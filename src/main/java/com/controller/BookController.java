@@ -52,12 +52,16 @@ public class BookController {
     public  String AddChaptersByWorker(@RequestParam("chapter")MultipartFile file,bookChapters bookChapters){
         //获取文件的名字
         String filename=file.getOriginalFilename();
+
+
+
         //获取文件的后缀名
         String suffix=filename.substring(filename.lastIndexOf("."));
         //上传的文件放在盘符下的upload文件夹中
         String path="e:\\upload\\";
         //防止重复名，随机文件名
         filename= path+ UUID.randomUUID()+suffix;
+
         File f=new File(filename);
         if(!f.getParentFile().exists()){
             f.getParentFile().mkdirs();
@@ -148,6 +152,14 @@ public class BookController {
        OutputStream  out =response.getOutputStream();
        out.write(Buff);
        out.close();
+
+   }
+   @RequestMapping("delBook")
+   public int   delBook(int  bId){
+    int num =bookService.delBook(bId);
+    return num;
+
+
 
    }
 
