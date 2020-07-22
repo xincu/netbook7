@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.util.List;
 import java.util.UUID;
 
@@ -135,7 +136,22 @@ public class BookController {
             return "no";
         }
     }
-/*关于上传文件*/
+   @RequestMapping("/showChapter")
+   public void showChapter(int bcId, HttpServletResponse response) throws IOException {
+        String Chapters=bookService.showChapter(bcId);
+       FileInputStream inputStream= new FileInputStream(Chapters);
+         int  i= inputStream.available();
+       byte []Buff=new byte[i];
+       inputStream.read(Buff);
+       inputStream.close();;
+       response.setContentType("text/html;charset=utf-8");
+       OutputStream  out =response.getOutputStream();
+       out.write(Buff);
+       out.close();
+
+   }
+
+    /*关于上传文件*/
 @RequestMapping("/updateFile")
     public String updateFile(@RequestParam("myfile")MultipartFile file){
     //获取文件的名字
@@ -151,7 +167,6 @@ public class BookController {
         f.getParentFile().mkdirs();
     }
     try{
-
             file.transferTo(f);
             return "成功";
         } catch (IOException e) {

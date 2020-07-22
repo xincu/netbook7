@@ -27,4 +27,6 @@ public interface BookService {
     int AuditChapters(int bcId, int bcStateId);
 
     int updateChapters(bookChapters bookChapters);
+
+    String showChapter(int bcId);
 }

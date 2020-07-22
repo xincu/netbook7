@@ -22,4 +22,6 @@ public interface bookChaptersMapper {
     int AuditChapters(int bcId, int bcStateId);
 
     int updateChapters(bookChapters bookChapters);
+
+    String showChapter(int bcId);
 }

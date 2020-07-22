@@ -102,9 +102,15 @@ public class BookServiceImpl implements BookService {
     public int AuditChapters(int bcId, int bcStateId) {
         return bookChaptersMapper.AuditChapters(bcId,bcStateId);
     }
-
+/*更新章节*/
     @Override
     public int updateChapters(bookChapters bookChapters) {
         return bookChaptersMapper.updateChapters(bookChapters);
     }
+/*通过指定书的指定章节获取小说存储的路径*/
+    @Override
+    public String showChapter(int bcId) {
+        return bookChaptersMapper.showChapter(bcId);
+    }
+
 }
